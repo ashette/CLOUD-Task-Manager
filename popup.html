@@ -6,13 +6,19 @@
         <!-- <script src="popup.js"></script>        	 -->
         <title>CTM</title>
     </head>
-    <body> 
+    <body>         
         <div id="container">
             <div id="header">
                 <div id="logo">
                     <img src = "logo.png" alt="">
-                    <h2>CLOUD Task Manager</h2>    
-                  
+                    <h2>CLOUD Task Manager</h2>  
+                    
+                                    
+                    <button id = "button_done_all"></button>
+                    <button id = "remove_done_all"></button>
+                    <button id = "refresh"></button>
+                    
+                    
                 </div> 
                 
                 <div id = "icons">
@@ -27,12 +33,12 @@
                  <br>
                  <ul>
                     
-                     <li><input type="checkbox" name="task1" value="a1"> <h6>Поесть то, чего еще не пробовал </h6>                      
+                     <li><input type="checkbox" name="task1" value="a1"> <div class = "task_this"> <h6>Поесть то, чего еще не пробовал </h6>  </div>                    
                          <input type = "button" value =" "  class = "done">
                          <input type = "button" value =" "  class = "edit_this" >  
                          <input type = "button" value =" "  class = "remove_this">
                        
-                 <li> <input type="checkbox" name="task2" value="a2"> <h6>Поспать минимум 8 часов</h6>
+                 <li> <input type="checkbox" name="task2" value="a2"> <div class = "task_this"> <h6>Поспать минимум 8 часов</h6> </div>
                      <input type = "button" value =" "  class = "done">
                      <input type = "button" value =" "  class = "edit_this" >  
                      <input type = "button" value =" "  class = "remove_this">
