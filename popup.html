@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>        
-
+        <meta charset="UTF-8"> 
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- <script src="popup.js"></script>        	 -->
         <title>CTM</title>
@@ -12,13 +12,31 @@
                 <div id="logo">
                     <img src = "logo.png" alt="">
                     <h2>CLOUD Task Manager</h2>    
+                  
                 </div> 
+                
+                <div id = "icons">
+                    
+                </div>
                       
             </div>      
             <div id="content">
                 <form id = "form" method = "get" action="">
-                 <input type = "text"  name = "sender" id = "task" onclick = "this.value;" value ="��� ��� ����� ������� �������?"    class = "task">
-                 <input type = "submit" name = "add_task" id = "add_task"  value = "�������� �������" class = "add_task">
+                 <input type = "text" maxlength ="50" name = "sender" id = "task" placeholder ="Что вам нужно сделать сегодня?"    class = "task">
+                 <input type = "submit" name = "add_task" id = "add_task"  value = "Добавить задание" class = "add_task">
+                 <br>
+                 <ul>
+                    
+                     <li><input type="checkbox" name="task1" value="a1"> <h6>Поесть то, чего еще не пробовал </h6>                      
+                         <input type = "button" value =" "  class = "done">
+                         <input type = "button" value =" "  class = "edit_this" >  
+                         <input type = "button" value =" "  class = "remove_this">
+                       
+                 <li> <input type="checkbox" name="task2" value="a2"> <h6>Поспать минимум 8 часов</h6>
+                     <input type = "button" value =" "  class = "done">
+                     <input type = "button" value =" "  class = "edit_this" >  
+                     <input type = "button" value =" "  class = "remove_this">
+                  </ul>
                 </form>
             </div>
 

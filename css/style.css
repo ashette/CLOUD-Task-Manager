@@ -8,6 +8,12 @@ body{
 	min-height:500px;
         position: relative;
 }
+@font-face{
+
+    font-family: DINPro Light;
+    src:url(10422.otf);
+
+}
 #container{
 	height: 400px;
 }
@@ -51,6 +57,11 @@ body{
     margin-left: 10px;
     opacity: 0.5;
 }
+ 
+.task:active, 
+.task:focus {
+    outline: none;
+}
 .add_task{
     
     margin-left: 10px;
@@ -61,6 +72,72 @@ body{
     border-style: none;
     text-align: center;
     display: inline-block;
+    cursor: pointer;
     
     
+}
+ul{
+    padding-left: 30px;    
+    margin-top: 50px;
+    height: 10px;
+    
+   
+    
+}
+h6{
+    margin: 0;
+    display: inline;
+     font-family:DINPro Light;
+    font-weight: bolder;
+    font-size: 15px;
+    max-width: 150px;
+    
+}
+li{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: block;
+  
+}
+li:hover {
+    background-color: #EEEEEE;
+        
+   
+}
+li:hover .done  {
+    background-image: url(../images/check_grey.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+    margin-left: 80px;
+     outline: none;
+     display: inline-block;
+}
+li:hover .edit_this {
+    background-image: url(../images/edit_pen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 5px;
+    outline: none;
+    display: inline-block;
+}
+li:hover .remove_this, .remove_this:focus {
+    background-image: url(../images/remove_grey.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    margin-left: 5px;
+    outline: none;
+        display: inline-block;
+}
+.done, .edit_this, .remove_this{
+    display: none;
 }
