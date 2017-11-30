@@ -12,41 +12,45 @@
                 <div id="logo">
                     <img src = "logo.png" alt="">
                     <h2>CLOUD Task Manager</h2>  
-                    
-                                    
-                    <button id = "button_done_all"></button>
-                    <button id = "remove_done_all"></button>
-                    <button id = "refresh"></button>
-                    
-                    
+
+                   <form id = "menu" method="get" action = "">                       
+                        <input type = "button" value = "     "  class = "button_done_all">
+                        <input type = "button" value = "     "  class = "button_remove_all">
+                        <input type = "button" value = "     "  class = "button_refresh">                       
+                    </form>
+
                 </div> 
-                
+
                 <div id = "icons">
-                    
+
                 </div>
-                      
+
             </div>      
             <div id="content">
                 <form id = "form" method = "get" action="">
-                 <input type = "text" maxlength ="50" name = "sender" id = "task" placeholder ="Что вам нужно сделать сегодня?"    class = "task">
-                 <input type = "submit" name = "add_task" id = "add_task"  value = "Добавить задание" class = "add_task">
-                 <br>
-                 <ul>
-                    
-                     <li><input type="checkbox" name="task1" value="a1"> <div class = "task_this"> <h6>Поесть то, чего еще не пробовал </h6>  </div>                    
-                         <input type = "button" value =" "  class = "done">
-                         <input type = "button" value =" "  class = "edit_this" >  
-                         <input type = "button" value =" "  class = "remove_this">
-                       
-                 <li> <input type="checkbox" name="task2" value="a2"> <div class = "task_this"> <h6>Поспать минимум 8 часов</h6> </div>
-                     <input type = "button" value =" "  class = "done">
-                     <input type = "button" value =" "  class = "edit_this" >  
-                     <input type = "button" value =" "  class = "remove_this">
-                  </ul>
+                    <input type = "text" maxlength ="50" name = "sender" id = "task" placeholder ="Что вам нужно сделать сегодня?"    class = "task">
+                    <input type = "submit" name = "add_task" id = "add_task"  value = "Добавить задание" class = "add_task">
+                    <br>
+                    <ul>
+
+                        <li><input type="checkbox" name="task1" value="a1"> <div class = "task_this"> <h6>Поесть то, чего еще не пробовал </h6>  </div>                    
+                            <input type = "button" value =" "  class = "done">
+                            <input type = "button" value =" "  class = "edit_this" >  
+                            <input type = "button" value =" "  class = "remove_this">
+
+                        <li> <input type="checkbox" name="task2" value="a2"> <div class = "task_this"> <h6>Поспать минимум 8 часов</h6> </div>
+                            <input type = "button" value =" "  class = "done">
+                            <input type = "button" value =" "  class = "edit_this" >  
+                            <input type = "button" value =" "  class = "remove_this">
+                    </ul>
                 </form>
             </div>
-
-
         </div> 
+        <div id="footer">
+            <div id ="rights">
+                <a>All rights reserved. 2017</a>
+            </div>
+        </div>
+
     </body>
 </html>
