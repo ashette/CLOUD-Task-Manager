@@ -3,29 +3,26 @@
     <head>        
         <meta charset="UTF-8"> 
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!-- <script src="popup.js"></script>        	 -->
+       
         <title>CTM</title>
     </head>
-    <body>         
-        <div id="container">
-            <div id="header">
+    <body>    
+          <div id="header">
                 <div id="logo">
                     <img src = "logo.png" alt="">
                     <h2>CLOUD Task Manager</h2>  
 
-                   <form id = "menu" method="get" action = "">                       
+                    <form id = "menu" method="get" action = "login.html">                       
                         <input type = "button" value = "     "  class = "button_done_all">
                         <input type = "button" value = "     "  class = "button_remove_all">
-                        <input type = "button" value = "     "  class = "button_refresh">                       
-                    </form>
-
-                </div> 
-
-                <div id = "icons">
+                        <input type = "button" value = "     "   class = "button_refresh">                       
+                    </form>                          
 
                 </div>
 
-            </div>      
+            </div>
+        <div id="container">
+                
             <div id="content">
                 <form id = "form" method = "get" action="">
                     <input type = "text" maxlength ="50" name = "sender" id = "task" placeholder ="Что вам нужно сделать сегодня?"    class = "task">
@@ -42,6 +39,7 @@
                             <input type = "button" value =" "  class = "done">
                             <input type = "button" value =" "  class = "edit_this" >  
                             <input type = "button" value =" "  class = "remove_this">
+                       
                     </ul>
                 </form>
             </div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CTM_LOGIN</title>
+        <link rel="stylesheet" href="css/style_register.css" media="screen" type="text/css" />
+
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <img src = "logo.png" alt="">
+                <h2>CLOUD Task Manager</h2>                
+            </div>
+        </div>
+        <div id="login">
+            <form action="popup.html" method="get">
+                <fieldset class="clearfix">
+                    <p><input type="text" placeholder="Логин" onBlur="if (this.value == '')
+                                this.value = 'Логин'" onFocus="if (this.value == 'Логин')
+                                            this.value = ''" required></p> 
+                    <p><input type="password"  placeholder="Пароль" onBlur="if (this.value == '')
+                                this.value = 'Пароль'" onFocus="if (this.value == 'Пароль')
+                                            this.value = ''" required></p> 
+                    <p><input type="password"  placeholder="Повторите пароль" onBlur="if (this.value == '')
+                                this.value = 'Повторите пароль'" onFocus="if (this.value == 'Повторите пароль')
+                                            this.value = ''" required></p> 
+                    <p><input type="email"  placeholder="Электронный адрес" onBlur="if (this.value == '')
+                                this.value = 'Электронный адрес'" onFocus="if (this.value == 'Электронный адрес')
+                                            this.value = ''" required></p> 
+                    <p><input type="submit"  value="Зарегестрироваться"></p>
+                </fieldset>
+            </form>
+            <p>Уже зарегестрированы? &nbsp;&nbsp;<a href="login.html">Войти</a></p>
+        </div>
+    </body>
+</html>
