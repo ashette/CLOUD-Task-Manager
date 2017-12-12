@@ -18,11 +18,11 @@ $(document).ready(function () {
         e.preventDefault();
 		let token = sessionStorage.getItem(tokenKey);
         CTM.getAllTasks(token, function (success) {
-			alert(success);
-            console.log(success);                                              
-			for (var i = 0; i < data.length; i++) { 
-				$('#task_list').append('<li><input type="checkbox" name="task' + (i + 1) +'" value="a'+ (i + 1)+'"> <h6>' + data[i]['Text'] + '</h6></li>') 
-			}  
+            $('#task_list').html(success);
+            console.log(success);
+            for (var i = 0; i < success.length; i++) {
+                $('#task_list').append('<li><input type="checkbox" name="task' + (i + 1) +'" value="a'+ (i + 1)+'"> <h6>' + success[i]['Text'] + '</h6></li>')
+            }
         },function (fail) {
             alert(fail);
         });

@@ -59,7 +59,7 @@ var CTMComponent = function () {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
             success: function (data) {
-                $('#task_list').html(data);
+                handleSuccess(data);
             },
             fail: function (data) {
                 handleFail(data);
