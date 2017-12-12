@@ -30,9 +30,10 @@ $(document).ready(function () {
 	
 	$('#button_refresh').click(function (e) {
         e.preventDefault();
-        let logOut = CTM.logOut(function (success) {
-            console.log(success);
-            sessionStorage.removeItem(tokenKey, success["access_token"]);
+		let token = sessionStorage.getItem(tokenKey);
+        let logOut = CTM.logOut(token, function (success) {
+			alert("Вы вышли из системы");
+            sessionStorage.removeItem(tokenKey);
 			document.location.href = 'login.html';
         },function (fail) {
             alert(fail);
