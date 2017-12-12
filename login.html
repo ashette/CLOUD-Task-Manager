@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <title>CTM_LOGIN</title>
         <link rel="stylesheet" href="css/style_login.css" media="screen" type="text/css" />
-
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/CTMComponent.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
     </head>
     <body>
         <div id="header">
@@ -14,18 +16,16 @@
             </div>
         </div>
         <div id="login">
-            <form action="popup.html" method="get">
+            <form>
                 <fieldset class="clearfix">
-                    <p><span class="fontawesome-user"></span><input type="text" placeholder="Логин" onBlur="if (this.value == '')
-                                this.value = 'Логин'" onFocus="if (this.value == 'Логин')
-                                            this.value = ''" required></p> 
-                    <p><span class="fontawesome-lock"></span><input type="password"  placeholder="Пароль" onBlur="if (this.value == '')
-                                this.value = 'Пароль'" onFocus="if (this.value == 'Пароль')
-                                            this.value = ''" required></p> 
-                    <p><input type="submit"  value="ВОЙТИ"></p>
+                    <p><span class="fontawesome-user"></span><input type="text" id="emailLogin" placeholder="Логин" ></p>
+                    <p><span class="fontawesome-lock"></span><input type="password" id="passwordLogin" placeholder="Пароль"></p>
+                    <p><input type="submit" id="submitLogin" value="ВОЙТИ"></p>
                 </fieldset>
             </form>
             <p>Нет аккаунта? &nbsp;&nbsp;<a href="register.html">Регистрация</a></p>
         </div>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/CTMComponent.js"></script>
     </body>
 </html>

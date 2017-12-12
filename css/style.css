@@ -8,12 +8,7 @@ body{
 	min-height:500px;
         position: relative;
 }
-@font-face{
 
-    font-family: DINPro Light;
-    src:url(10422.otf);
-
-}
 #container{
 	height: 400px;
         max-height: 400px;
@@ -74,7 +69,7 @@ body{
 .task:focus {
     outline: none;
 }
-.add_task{
+#add_task{
     
     margin-left: 10px;
     width: 150px;
@@ -180,7 +175,7 @@ li:hover .remove_this {
   
 }
 
-.button_done_all{
+#button_done_all{
     background-image: url(../images/double_check_white.png);
     background-repeat: no-repeat;  
     background-size: contain;
@@ -197,7 +192,7 @@ li:hover .remove_this {
     
     
 }
-.button_remove_all{
+#button_remove_all{
     background-image: url(../images/remove_white.png);
     background-repeat: no-repeat;  
     background-size: contain;
@@ -214,7 +209,7 @@ li:hover .remove_this {
     margin-left: 50px;
     
 }
-.button_refresh{
+#button_refresh{
     background-image: url(../images/return.png);
     background-repeat: no-repeat;  
     background-size: contain;
@@ -230,7 +225,7 @@ li:hover .remove_this {
   
     margin-left: 100px;
 }
-.button_refresh:hover , .button_remove_all:hover, .button_done_all:hover{
+#button_refresh:hover , #button_remove_all:hover, #button_done_all:hover{
     
     opacity: 1;
     background-color: #61c8ff;
