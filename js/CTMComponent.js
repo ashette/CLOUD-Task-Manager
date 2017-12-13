@@ -88,8 +88,26 @@ var CTMComponent = function () {
             }
         });
     };
+	
+	this.deleteCompletedTasks = function (token, handleSuccess, handleFail) {
+		
+		$.ajax({
+            type: 'GET',
+            url: domainName + '/api/Task/DeleteCompletedTasks',	
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) { //в data записываетсы то что вернет сервер
+                handleSuccess(data);
+            },
+            fail: function (data) {
+                handleFail(data);
+            }
+        });
+    };
+	
 
-    this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
+	this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
         let datatask = {
             Id: id,
             Complete: complete,

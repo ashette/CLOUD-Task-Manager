@@ -14,6 +14,7 @@ function printTasks(tasksList) {
     for (var i = 0; i < tasksList.length; i++) {
 
 
+
         if (tasksList[i]['Complete'] == 1) {
             $('#task_list').append('<li id=\"' + i + '\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
                 '<div class = "task_this"><h6 class="complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
@@ -99,7 +100,6 @@ $(document).ready(function () {
         let complete = 0;
         if (!flag) {
             CTM.addTask(token, complete, text, function (success) {
-                alert(success);
                 alert("Вы что-то добавили");
                 console.log(success);
             }, function (fail) {
@@ -127,6 +127,21 @@ $(document).ready(function () {
         });
 
 
+	$('#button_remove_all').click(function (e) {
+        e.preventDefault();
+        CTM.deleteCompletedTasks(token, function (success) {
+            alert("Вы удалили все выполненные задания");
+        }, function (fail) {
+            alert(fail);
+        });
+		
+		CTM.getAllTasks(token, handleTasks,
+            function (fail) {
+                alert(fail);
+            });
+    });	
+	
+	
     $('#button_refresh').click(function (e) {
         e.preventDefault();
         let logOut = CTM.logOut(token, function (success) {
