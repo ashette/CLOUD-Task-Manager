@@ -14,13 +14,13 @@ function printTasks(tasksList) {
         if(tasksList[i]['Complete'] == 1){
             $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
                 '<div class = "task_this"><h6 class="complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
-                '<input type = "button" value ="" class = "done"> ' +
+                '<input type = "button" value ="" id = "done"> ' +
                 '<input type = "button" value ="" id= "edit_this" >' +
                 '<input type = "button" value ="" id= "remove_this"> </li>');
         }else{
             $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
                 '<div class = "task_this"><h6 class="not_complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
-                '<input type = "button" value ="" class = "done"> ' +
+                '<input type = "button" value ="" id = "done"> ' +
                 '<input type = "button" value ="" id= "edit_this" >' +
                 '<input type = "button" value ="" id= "remove_this"> </li>');
         }
@@ -67,6 +67,22 @@ $(document).ready(function () {
             });
     });
 
+	$('#task_list').on('click','#done', function (e) {
+        e.preventDefault();
+        let id = $(this).parent().attr('id');
+		complete = 1;
+        CTM.completeTask(token, tasksList[id]['Id'], complete, function (success) {
+            alert("Задание" + tasksList[id]['Id'] + "Выполнено");
+        }, function (fail) {
+            alert(fail);
+        });
+
+        CTM.getAllTasks(token, handleTasks,
+            function (fail) {
+                alert(fail);
+            });
+    });
+	
     $('#add_task').click(function (e) {
         e.preventDefault();
         let text = $('#task').val();

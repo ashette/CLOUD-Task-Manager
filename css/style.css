@@ -123,7 +123,7 @@ li:hover {
         
    
 }
-li:hover .done  {
+li:hover #done  {
     background-image: url(../images/check_grey.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -157,7 +157,7 @@ li:hover #remove_this {
     outline: none;
     display: inline-block;
 }
-.done, #edit_this, #remove_this{
+#done, #edit_this, #remove_this{
     display: none;
 }
 .task_this{
