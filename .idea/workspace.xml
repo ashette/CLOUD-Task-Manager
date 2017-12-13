@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81ecf5be-90ff-46e8-9727-0bb86663409d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/CTMComponent.js" afterPath="$PROJECT_DIR$/js/CTMComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/popup.js" afterPath="$PROJECT_DIR$/js/popup.js" />
     </list>
@@ -26,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CTMComponent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CTMComponent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/CTMComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1392">
-              <caret line="156" column="27" lean-forward="true" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
+            <state relative-caret-position="1958">
+              <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -79,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="popup.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="popup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="106" column="32" lean-forward="false" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+            <state relative-caret-position="2002">
+              <caret line="77" column="13" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -131,8 +130,8 @@
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/popup.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/CTMComponent.js" />
         <option value="$PROJECT_DIR$/js/popup.js" />
+        <option value="$PROJECT_DIR$/js/CTMComponent.js" />
       </list>
     </option>
   </component>
@@ -333,12 +332,12 @@
       <workItem from="1512749661198" duration="2949000" />
       <workItem from="1513104081852" duration="1925000" />
       <workItem from="1513181268359" duration="12989000" />
-      <workItem from="1513195262850" duration="1243000" />
+      <workItem from="1513195262850" duration="1496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44572000" />
+    <option name="totallyTimeSpent" value="44825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -794,18 +793,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/CTMComponent.js">
+    <entry file="file://$PROJECT_DIR$/js/popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1392">
-          <caret line="156" column="27" lean-forward="true" selection-start-line="156" selection-start-column="27" selection-end-line="156" selection-end-column="27" />
+        <state relative-caret-position="2002">
+          <caret line="77" column="13" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/popup.js">
+    <entry file="file://$PROJECT_DIR$/js/CTMComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="106" column="32" lean-forward="false" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+        <state relative-caret-position="1958">
+          <caret line="131" column="0" lean-forward="true" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding />
         </state>
       </provider>

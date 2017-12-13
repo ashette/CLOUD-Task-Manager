@@ -111,11 +111,34 @@ var CTMComponent = function () {
         });
     };
 
+
     this.logOut = function (token, handleSuccess, handleFail) {
 
         $.ajax({
             type: 'POST',
             url: domainName + '/api/Account/Logout',
+
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) { //в data записываетсы то что вернет сервер
+                handleSuccess(data);
+            },
+            fail: function (data) {
+                handleFail(data);
+            }
+        });
+    };
+
+
+    this.deleteTask = function (token, id, handleSuccess, handleFail) {
+        let datatask = {
+            Id: id
+        };
+        $.ajax({
+
+            type: 'POST',
+            url: domainName + '/api/Account/Logout',	
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
@@ -125,22 +148,6 @@ var CTMComponent = function () {
             fail: function (data) {
                 handleFail(data);
             }
-        });
-    };
-
-    this.deleteTask = function (token, id, handleSuccess, handleFail) {
-        let datatask = {
-            Id: id
-        };
-        $.ajax({
-            type: 'POST',
-            url: domainName + '/api/Task/Delete',
-            data: datatask,
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + token);
-            },
-            success: handleSuccess,
-            fail: handleFail
         });
     };
 
