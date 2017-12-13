@@ -231,3 +231,13 @@ li:hover #remove_this {
     background-color: #61c8ff;
     border-radius: 5px;
 }
+
+.complete_task{
+    display: inline-block;
+    text-decoration: line-through;
+}
+
+.not_complete-task{
+    display: inline-block;
+    text-decoration: none;
+}

@@ -10,11 +10,20 @@ function printTasks(tasksList) {
         return;
     }
     for (var i = 0; i < tasksList.length; i++) {
-        $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
-            '<div class = "task_this"> <h6>' + tasksList[i]['Text'] + '</h6>  </div> ' +
-            '<input type = "button" value ="" class = "done"> ' +
-            '<input type = "button" value ="" id= "edit_this" >' +
-            '<input type = "button" value ="" id= "remove_this"> </li>')
+
+        if(tasksList[i]['Complete'] == 1){
+            $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
+                '<div class = "task_this"><h6 class="complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
+                '<input type = "button" value ="" class = "done"> ' +
+                '<input type = "button" value ="" id= "edit_this" >' +
+                '<input type = "button" value ="" id= "remove_this"> </li>');
+        }else{
+            $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
+                '<div class = "task_this"><h6 class="not_complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
+                '<input type = "button" value ="" class = "done"> ' +
+                '<input type = "button" value ="" id= "edit_this" >' +
+                '<input type = "button" value ="" id= "remove_this"> </li>');
+        }
     }
 
 
