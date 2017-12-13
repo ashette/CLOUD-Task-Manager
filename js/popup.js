@@ -10,12 +10,11 @@ function printTasks(tasksList) {
         return;
     }
     for (var i = 0; i < tasksList.length; i++) {
-        $('#task_list').append('<li><input type="hidden" name="id_task" value=\"'+ tasksList[i]['Id'] +'\">' +
-            '<input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
+        $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
             '<div class = "task_this"> <h6>' + tasksList[i]['Text'] + '</h6>  </div> ' +
-            '<input type = "button" value =" " class = "done"> ' +
-            '<input type = "button" value =" " id = "edit_this" >' +
-            ' <input type = "button" value =" " id = "remove_this"> </li>')
+            '<input type = "button" value ="" class = "done"> ' +
+            '<input type = "button" value ="" id= "edit_this" >' +
+            '<input type = "button" value ="" id= "remove_this"> </li>')
     }
 
 
@@ -32,10 +31,33 @@ function handleTasks(success) {
     for (var i = 0; i < success.length; i++) {
         tasksList.push(success[i]);
     }
+
     printTasks(tasksList);
 }
 
 $(document).ready(function () {
+    $('#task_list').on('click','#edit_this', function (e) {
+        e.preventDefault();
+        let id = $(this).parent().attr('id');
+        // tasksList[id]['Id']
+    });
+
+    $('#task_list').on('click','#remove_this', function (e) {
+        e.preventDefault();
+        let id = $(this).parent().attr('id');
+
+        CTM.deleteTask(token, tasksList[id]['Id'], function (success) {
+            alert("Хоп Хэй");
+        }, function (fail) {
+            alert(fail);
+        });
+
+        CTM.getAllTasks(token, handleTasks,
+            function (fail) {
+                alert(fail);
+            });
+    });
+
     $('#add_task').click(function (e) {
         e.preventDefault();
         let text = $('#task').val();
@@ -73,4 +95,7 @@ $(document).ready(function () {
             alert(fail);
         });
     });
+
+
 })
+

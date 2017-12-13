@@ -105,6 +105,22 @@ var CTMComponent = function () {
             }
         });
     };
+
+    this.deleteTask = function (token, id, handleSuccess, handleFail) {
+        let datatask = {
+            Id:id
+        };
+        $.ajax({
+            type: 'POST',
+            url: domainName + '/api/Task/Delete',
+            data: datatask,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: handleSuccess,
+            fail: handleFail
+        });
+    };
 }
 
 window.CTM = new CTMComponent();
