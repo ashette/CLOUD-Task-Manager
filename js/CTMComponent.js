@@ -89,15 +89,37 @@ var CTMComponent = function () {
         });
     };
 	
-	this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
+	this.editTask = function (token, id, complete, text, handleSuccess, handleFail) {
         let datatask = {
-			Id : id,
+			Id:id,
 			Complete: complete,
+			Text: text
 		};
 		
 		$.ajax({
             type: 'POST',
-            url: domainName + '/api/Task/MakeComplete',	
+            url: domainName + '/api/Task/Edit',	
+            data: datatask,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) { //в data записываетсы то что вернет сервер
+                handleSuccess(data);
+            },
+            fail: function (data) {
+                handleFail(data);
+            }
+        });
+    };
+	
+	
+	this.deleteTask = function (token, id, handleSuccess, handleFail) {
+        let datatask = {
+			Id:id
+		};		
+		$.ajax({
+            type: 'POST',
+            url: domainName + '/api/Task/Delete',	
             data: datatask,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -125,22 +147,6 @@ var CTMComponent = function () {
             fail: function (data) {
                 handleFail(data);
             }
-        });
-    };
-
-    this.deleteTask = function (token, id, handleSuccess, handleFail) {
-        let datatask = {
-            Id:id
-        };
-        $.ajax({
-            type: 'POST',
-            url: domainName + '/api/Task/Delete',
-            data: datatask,
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Bearer " + token);
-            },
-            success: handleSuccess,
-            fail: handleFail
         });
     };
 }

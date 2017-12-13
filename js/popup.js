@@ -1,6 +1,7 @@
 var tokenKey = "tokenInfo";
 var token = sessionStorage.getItem(tokenKey);
 var tasksList = [];
+var flag = false;
 
 function printTasks(tasksList) {
     if(tasksList.length > 0){
@@ -10,20 +11,11 @@ function printTasks(tasksList) {
         return;
     }
     for (var i = 0; i < tasksList.length; i++) {
-
-        if(tasksList[i]['Complete'] == 1){
-            $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
-                '<div class = "task_this"><h6 class="complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
-                '<input type = "button" value ="" id = "done"> ' +
-                '<input type = "button" value ="" id= "edit_this" >' +
-                '<input type = "button" value ="" id= "remove_this"> </li>');
-        }else{
-            $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
-                '<div class = "task_this"><h6 class="not_complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
-                '<input type = "button" value ="" id = "done"> ' +
-                '<input type = "button" value ="" id= "edit_this" >' +
-                '<input type = "button" value ="" id= "remove_this"> </li>');
-        }
+        $('#task_list').append('<li id=\"'+ i +'\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
+            '<div class = "task_this"> <h6>' + tasksList[i]['Text'] + '</h6>  </div> ' +
+            '<input type = "button" value ="" class = "done"> ' +
+            '<input type = "button" value ="" id= "edit_this" >' +
+            '<input type = "button" value ="" id= "remove_this"> </li>')
     }
 
 
@@ -45,11 +37,11 @@ function handleTasks(success) {
 }
 
 $(document).ready(function () {
-    $('#task_list').on('click','#edit_this', function (e) {
+   /*  $('#task_list').on('click','#edit_this', function (e) {
         e.preventDefault();
         let id = $(this).parent().attr('id');
         // tasksList[id]['Id']
-    });
+    }); */
 
     $('#task_list').on('click','#remove_this', function (e) {
         e.preventDefault();
@@ -66,13 +58,15 @@ $(document).ready(function () {
                 alert(fail);
             });
     });
-
-	$('#task_list').on('click','#done', function (e) {
+	
+	 $('#task_list').on('click','#edit_this', function (e) {
         e.preventDefault();
         let id = $(this).parent().attr('id');
-		complete = 1;
-        CTM.completeTask(token, tasksList[id]['Id'], complete, function (success) {
-            alert("Задание" + tasksList[id]['Id'] + "Выполнено");
+		flag = true;
+		$('#task').val(tasksList[id]['Text']) ;
+		$('#add_task').click(function (e) {
+        CTM.editTask(token,tasksList[id]['Id'], 0,  tasksList[id]['Text'], function (success) {
+            alert("Хоп Хэй");
         }, function (fail) {
             alert(fail);
         });
@@ -80,13 +74,17 @@ $(document).ready(function () {
         CTM.getAllTasks(token, handleTasks,
             function (fail) {
                 alert(fail);
-            });
-    });
-	
+		});
+		
+	 })});
+
+    
+
     $('#add_task').click(function (e) {
         e.preventDefault();
         let text = $('#task').val();
         let complete = 0;
+		if(flag != true){
         CTM.addTask(token, complete, text, function (success) {
             alert(success);
             alert("Вы что-то добавили");
@@ -94,7 +92,7 @@ $(document).ready(function () {
         }, function (fail) {
             alert(fail);
         });
-
+		}
         CTM.getAllTasks(token, handleTasks,
             function (fail) {
                 alert(fail);
@@ -122,5 +120,4 @@ $(document).ready(function () {
     });
 
 
-})
-
+});
