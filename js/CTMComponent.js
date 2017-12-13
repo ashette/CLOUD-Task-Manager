@@ -54,7 +54,7 @@ var CTMComponent = function () {
     this.getAllTasks = function (token, handleSuccess, handleFail) {
         $.ajax({
             type: 'GET',
-            url: domainName + '/api/Task/GetAll',	
+            url: domainName + '/api/Task/GetAll',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
@@ -66,16 +66,16 @@ var CTMComponent = function () {
             }
         });
     };
-	
-	this.addTask = function (token, complete, text, handleSuccess, handleFail) {
+
+    this.addTask = function (token, complete, text, handleSuccess, handleFail) {
         let datatask = {
-			Complete: complete,
-			Text: text
-		};
-		
-		$.ajax({
+            Complete: complete,
+            Text: text
+        };
+
+        $.ajax({
             type: 'POST',
-            url: domainName + '/api/Task/Add',	
+            url: domainName + '/api/Task/Add',
             data: datatask,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -88,16 +88,16 @@ var CTMComponent = function () {
             }
         });
     };
-	
-	this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
+
+    this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
         let datatask = {
-			Id : id,
-			Complete: complete,
-		};
-		
-		$.ajax({
+            Id: id,
+            Complete: complete,
+        };
+
+        $.ajax({
             type: 'POST',
-            url: domainName + '/api/Task/MakeComplete',	
+            url: domainName + '/api/Task/MakeComplete',
             data: datatask,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -110,12 +110,12 @@ var CTMComponent = function () {
             }
         });
     };
-	
-	this.logOut = function (token, handleSuccess, handleFail) {
-		
-		$.ajax({
+
+    this.logOut = function (token, handleSuccess, handleFail) {
+
+        $.ajax({
             type: 'POST',
-            url: domainName + '/api/Account/Logout',	
+            url: domainName + '/api/Account/Logout',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
@@ -130,7 +130,7 @@ var CTMComponent = function () {
 
     this.deleteTask = function (token, id, handleSuccess, handleFail) {
         let datatask = {
-            Id:id
+            Id: id
         };
         $.ajax({
             type: 'POST',
@@ -141,6 +141,29 @@ var CTMComponent = function () {
             },
             success: handleSuccess,
             fail: handleFail
+        });
+    };
+
+    this.editTask = function (token, id, complete, text, handleSuccess, handleFail) {
+        let datatask = {
+            Id: id,
+            Complete: complete,
+            Text: text
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: domainName + '/api/Task/Edit',
+            data: datatask,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer " + token);
+            },
+            success: function (data) { //в data записываетсы то что вернет сервер
+                handleSuccess(data);
+            },
+            fail: function (data) {
+                handleFail(data);
+            }
         });
     };
 }
