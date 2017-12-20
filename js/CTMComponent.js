@@ -58,12 +58,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) {
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 
@@ -80,12 +76,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) { //в data записываетсы то что вернет сервер
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 	
@@ -97,12 +89,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) { //в data записываетсы то что вернет сервер
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 	
@@ -120,12 +108,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) { //в data записываетсы то что вернет сервер
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 
@@ -139,12 +123,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) { //в data записываетсы то что вернет сервер
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 
@@ -160,12 +140,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) { //в data записываетсы то что вернет сервер
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 
@@ -183,12 +159,8 @@ var CTMComponent = function () {
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
-            success: function (data) { //в data записываетсы то что вернет сервер
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail(data);
-            }
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 }
