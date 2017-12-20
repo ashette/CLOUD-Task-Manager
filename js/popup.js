@@ -123,14 +123,29 @@ $(document).ready(function () {
         });
     });
 
+	$('#task').click(function (e) {
+		e.preventDefault();
+		let button = document.getElementById("add_task");
+		button.disabled = false;
+	});
+	
     // Add task
     $('#add_task').click(function (e) {
         e.preventDefault();
-        let text = $('#task').val();
+		let text = $('#task').val();
+		let button = document.getElementById("add_task");
+		if (text != "") {
+			button.disabled = false;
+		} else {
+			button.disabled = true;
+			return;
+		}
+        
         let complete = 0;
         if (!flag) {
             CTM.addTask(token, complete, text, function (success) {
-                getAddTask(success);
+				getAddTask(success);
+				document.getElementById("task").value = "";
             }, function (fail) {
                 alert(fail);
             });
@@ -139,10 +154,12 @@ $(document).ready(function () {
                 getEditTask(taskListId, success);
                 flag = false;
                 taskListId = -1;
+				document.getElementById("task").value = "";
             }, function (fail) {
                 alert(fail);
             });
         }
+
     });
 
 
