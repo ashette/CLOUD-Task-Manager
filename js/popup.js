@@ -4,6 +4,27 @@ var tasksList = [];
 var flag = false;
 var taskListId = -1;
 
+function createCompleteTaskHtml(index, task){
+    let str = '<li id=\"' + index + '\"><input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
+        '<div class = "task_this"><h6 class="complete_task">' + task + '</h6></div> ' +
+        '<input type = "button" value ="" id = "done"> ' +
+        '<input type = "button" value ="" id= "edit_this" >' +
+        '<input type = "button" value ="" id= "remove_this"> </li>';
+
+    return str;
+};
+
+
+function createNotCompleteTaskHtml(index, task){
+    let str = '<li id=\"' + index + '\"><input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
+        '<div class = "task_this"><h6 class="not_complete_task">' + task + '</h6></div> ' +
+        '<input type = "button" value ="" id = "done"> ' +
+        '<input type = "button" value ="" id= "edit_this" >' +
+        '<input type = "button" value ="" id= "remove_this"> </li>';
+
+    return str;
+};
+
 function printTasks(tasksList) {
     if (tasksList.length > 0) {
         $('#task_list').empty();
@@ -11,24 +32,18 @@ function printTasks(tasksList) {
     else {
         return;
     }
+
+    let taskLine = "";
+
     for (var i = 0; i < tasksList.length; i++) {
 
         if (tasksList[i]['Complete'] == 1) {
-            $('#task_list').append('<li id=\"' + i + '\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
-                '<div class = "task_this"><h6 class="complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
-                '<input type = "button" value ="" id = "done"> ' +
-                '<input type = "button" value ="" id= "edit_this" >' +
-                '<input type = "button" value ="" id= "remove_this"> </li>');
+            taskLine += createCompleteTaskHtml(i, tasksList[i]['Text']);
         } else {
-            $('#task_list').append('<li id=\"' + i + '\"><input type="checkbox" name="task' + (i + 1) + '" value="a' + (i + 1) + '">' +
-                '<div class = "task_this"><h6 class="not_complete_task">' + tasksList[i]['Text'] + '</h6></div> ' +
-                '<input type = "button" value ="" id = "done"> ' +
-                '<input type = "button" value ="" id= "edit_this" >' +
-                '<input type = "button" value ="" id= "remove_this"> </li>');
+            taskLine += createNotCompleteTaskHtml(i, tasksList[i]['Text']);
         }
-
     }
-
+    $('#task_list').append(taskLine);
 
 }
 

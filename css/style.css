@@ -1,43 +1,45 @@
 
-body{
-	background: #fff;
-	font-family: DINPro Light, sans-serif;
-        font-size: 14px;
-	width: 500px;
-	margin: 0;
-	min-height:500px;
-        position: relative;
+body {
+    background: #fff;
+    font-family: DINPro Light, sans-serif;
+    font-size: 14px;
+    width: 500px;
+    margin: 0;
+    min-height: 500px;
+    position: relative;
 }
 
-#container{
-	height: 400px;
-        max-height: 400px;
+#container {
+    height: 400px;
+    max-height: 400px;
 }
-#header{
-	background-color: #38b8ff;
-	width: 100%;
-	height:50px;
-	color : #fff;
-	margin-bottom:10px;
 
-	
+#header {
+    background-color: #38b8ff;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    margin-bottom: 10px;
+
 }
-#header #logo h2{
-	display: inline-block;
-	margin-top: 10px;	
-	position:absolute;
-	
+
+#header #logo h2 {
+    display: inline-block;
+    margin-top: 10px;
+    position: absolute;
+
 }
 
 #header #logo img {
-	
-	width:30px;
-	height:30px;
-	position: relative;
-	margin:5px;
-        margin-top: 10px;
-		
+
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin: 5px;
+    margin-top: 10px;
+
 }
+
 #content {
     background: #FFF;
     float: right;
@@ -45,15 +47,15 @@ body{
     margin-right: 0;
     margin-bottom: 0;
     margin-top: 0;
-    
-}
-#form{
-    display: inline-block;
-   
-   
+
 }
 
-.task{
+#form {
+    display: inline-block;
+
+}
+
+.task {
     border-color: #dcd7d7;
     height: 30px;
     width: 300px;
@@ -64,77 +66,80 @@ body{
     margin-left: 10px;
     opacity: 0.5;
 }
- 
-.task:active, 
+
+.task:active,
 .task:focus {
     outline: none;
 }
-#add_task{
-    
+
+#add_task {
+
     margin-left: 10px;
     width: 150px;
     height: 30px;
-    background-color:  #38b8ff;
+    background-color: #38b8ff;
     color: #fff;
     border-style: none;
     text-align: center;
     display: inline-block;
     cursor: pointer;
-    
-    
+
 }
+
 #footer {
-    background: #FFFFFF;    
+    background: #FFFFFF;
     width: 100%;
-    height:20px;
-    position: fixed; 
+    height: 20px;
+    position: fixed;
     padding: 10px;
-    left: 0; bottom: 0; 
+    left: 0;
+    bottom: 0;
     text-align: center;
     margin-top: 0.5%;
     /* position:relative;*/
 
 }
-ul{
-    padding-left: 30px;    
-    margin-top: 50px;
+
+ul {
+    padding-left: 30px;
     height: 10px;
-    
-   
-    
 }
-h6{
+
+h6 {
     margin: 0;
     display: inline;
-    font-family:DINPro Light;
+    font-family: DINPro Light;
     font-weight: bolder;
     font-size: 15px;
     max-width: 150px;
-    
+
 }
-li{
+
+li {
     padding-bottom: 5px;
     padding-top: 10px;
     display: block;
-  
+
 }
+
 li:hover {
     background-color: #EEEEEE;
-        
-   
+
 }
-li:hover #done  {
+
+li:hover #done {
     background-image: url(../images/check_grey.png);
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
     background-color: transparent;
     cursor: pointer;
-    
+
     margin-left: 80px;
-     outline: none;
-     display: inline-block;
+    outline: none;
+    display: inline-block;
 }
+
 li:hover #edit_this {
     background-image: url(../images/edit_pen.png);
     background-repeat: no-repeat;
@@ -146,6 +151,7 @@ li:hover #edit_this {
     outline: none;
     display: inline-block;
 }
+
 li:hover #remove_this {
     background-image: url(../images/remove_grey.png);
     background-repeat: no-repeat;
@@ -157,87 +163,111 @@ li:hover #remove_this {
     outline: none;
     display: inline-block;
 }
-#done, #edit_this, #remove_this{
+
+#done, #edit_this, #remove_this {
     display: none;
 }
-.task_this{
-   display: inline-block;
-   width: 250px;
+
+.task_this {
+    display: inline-block;
+    width: 250px;
 }
+
 #menu {
-       
+
     margin-left: 300px;
     display: inline-block;
     margin-top: 0;
     width: 0;
     height: 30px;
 
-  
 }
 
-#button_done_all{
+#button_done_all {
     background-image: url(../images/double_check_white.png);
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
     background-size: contain;
-    cursor: pointer;   
+    cursor: pointer;
     height: 25px;
-    width: 25px;    
+    width: 25px;
     outline: none;
     display: inline-block;
     position: absolute;
     border: white;
     background-color: transparent;
     outline: none;
-  
-    
-    
+
 }
-#button_remove_all{
+
+#button_remove_all {
     background-image: url(../images/remove_white.png);
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
     background-size: contain;
-    cursor: pointer;   
+    cursor: pointer;
     height: 25px;
-    width: 25px;    
+    width: 25px;
     outline: none;
     display: inline-block;
     position: absolute;
     border: white;
     background-color: transparent;
     outline: none;
-    
+
     margin-left: 50px;
-    
+
 }
-#button_refresh{
+
+#button_refresh {
     background-image: url(../images/return.png);
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
     background-size: contain;
-    cursor: pointer;   
+    cursor: pointer;
     height: 25px;
-    width: 25px;    
+    width: 25px;
     outline: none;
     display: inline-block;
     position: absolute;
     border: white;
     background-color: transparent;
     outline: none;
-  
     margin-left: 100px;
 }
-#button_refresh:hover , #button_remove_all:hover, #button_done_all:hover{
-    
+
+#button_refresh:hover, #button_remove_all:hover, #button_done_all:hover {
     opacity: 1;
     background-color: #61c8ff;
     border-radius: 5px;
 }
 
-.complete_task{
+.complete_task {
     display: inline-block;
     text-decoration: line-through;
+    color: #d3d3d3;
 }
 
-.not_complete-task{
+.not_complete-task {
     display: inline-block;
     text-decoration: none;
+}
+
+.vertScroll {
+    overflow-y: scroll;
+    height: 450px;
+}
+
+.vertScroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.vertScroll::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.vertScroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #38b8ff;
 }
