@@ -252,7 +252,8 @@ li:hover #remove_this {
 
 .vertScroll {
     overflow-y: scroll;
-    height: 450px;
+    height: 350px;
+    margin-right: 13px;
 }
 
 .vertScroll::-webkit-scrollbar-track {
