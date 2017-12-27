@@ -5,22 +5,30 @@ var flag = false;
 var taskListId = -1;
 
 function createCompleteTaskHtml(index, task){
-    let str = '<li id=\"' + index + '\"><input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
+    let str = '<li id=\"' + index + '\">' +
+        '<div class="inner">' +
+        '<input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
         '<div class = "task_this"><h6 class="complete_task">' + task + '</h6></div> ' +
         '<input type = "button" value ="" id = "done"> ' +
         '<input type = "button" value ="" id= "edit_this" >' +
-        '<input type = "button" value ="" id= "remove_this"> </li>';
+        '<input type = "button" value ="" id= "remove_this">' +
+        '</div>' +
+        '</li>';
 
     return str;
 };
 
 
 function createNotCompleteTaskHtml(index, task){
-    let str = '<li id=\"' + index + '\"><input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
+    let str = '<li id=\"' + index + '\">' +
+        '<div class="inner">' +
+        '<input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
         '<div class = "task_this"><h6 class="not_complete_task">' + task + '</h6></div> ' +
         '<input type = "button" value ="" id = "done"> ' +
         '<input type = "button" value ="" id= "edit_this" >' +
-        '<input type = "button" value ="" id= "remove_this"> </li>';
+        '<input type = "button" value ="" id= "remove_this"> ' +
+        '</div>' +
+        '</li>';
 
     return str;
 };
@@ -103,7 +111,7 @@ $(document).ready(function () {
     //Edit task
     $('#task_list').on('click', '#edit_this', function (e) {
         e.preventDefault();
-        taskListId = $(this).parent().attr('id');
+        taskListId = $(this).parent().parent().attr('id');
 
         $('#task').val(tasksList[taskListId]['Text']);
         flag = true;
@@ -112,7 +120,7 @@ $(document).ready(function () {
     //Remove task
     $('#task_list').on('click', '#remove_this', function (e) {
         e.preventDefault();
-        let id = $(this).parent().attr('id');
+        let id = $(this).parent().parent().attr('id');
 
         CTM.deleteTask(token, tasksList[id]['Id'], function (success) {
             alert("Хоп Хэй");
@@ -129,7 +137,7 @@ $(document).ready(function () {
     //Make complete
     $('#task_list').on('click', '#done', function (e) {
         e.preventDefault();
-        let id = $(this).parent().attr('id');
+        let id = $(this).parent().parent().attr('id');
         complete = 1;
         CTM.completeTask(token, tasksList[id]['Id'], complete, function (success) {
             getMakeCompleteTask(id, success);

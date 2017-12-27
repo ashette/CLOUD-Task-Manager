@@ -72,6 +72,11 @@ body {
     outline: none;
 }
 
+#task_list{
+    margin: 0;
+    padding: 0;
+}
+
 #add_task {
 
     margin-left: 10px;
@@ -101,8 +106,7 @@ body {
 }
 
 ul {
-    padding-left: 30px;
-    height: 10px;
+
 }
 
 h6 {
@@ -116,10 +120,7 @@ h6 {
 }
 
 li {
-    padding-bottom: 5px;
-    padding-top: 10px;
     display: block;
-
 }
 
 li:hover {
@@ -171,6 +172,10 @@ li:hover #remove_this {
 .task_this {
     display: inline-block;
     width: 250px;
+}
+
+.inner{
+    padding: 10px 0 10px 0;
 }
 
 #menu {
@@ -253,7 +258,7 @@ li:hover #remove_this {
 .vertScroll {
     overflow-y: scroll;
     height: 350px;
-    margin-right: 13px;
+    margin: 13px;
 }
 
 .vertScroll::-webkit-scrollbar-track {
