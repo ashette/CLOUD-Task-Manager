@@ -7,7 +7,6 @@ var taskListId = -1;
 function createCompleteTaskHtml(index, task){
     let str = '<li id=\"' + index + '\">' +
         '<div class="inner">' +
-        '<input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
         '<div class = "task_this"><h6 class="complete_task">' + task + '</h6></div> ' +
         '<input type = "button" value ="" id = "done"> ' +
         '<input type = "button" value ="" id= "edit_this" >' +
@@ -22,7 +21,6 @@ function createCompleteTaskHtml(index, task){
 function createNotCompleteTaskHtml(index, task){
     let str = '<li id=\"' + index + '\">' +
         '<div class="inner">' +
-        '<input type="checkbox" name="task' + (index + 1) + '" value="a' + (index + 1) + '">' +
         '<div class = "task_this"><h6 class="not_complete_task">' + task + '</h6></div> ' +
         '<input type = "button" value ="" id = "done"> ' +
         '<input type = "button" value ="" id= "edit_this" >' +
@@ -53,6 +51,15 @@ function printTasks(tasksList) {
     }
     $('#task_list').append(taskLine);
 
+    $('.vertScroll').css("overflow-y", "");
+    if($('#task_list').height() < $('.vertScroll').height()){
+        console.log("overflow-y none");
+        $('.vertScroll').css("overflow-y", "none");
+    }
+    else{
+        console.log("overflow-y scroll");
+        $('.vertScroll').css("overflow-y", "scroll");
+    }
 }
 
 function getAddTask(task) {
@@ -72,6 +79,11 @@ function getEditTask(id, task) {
 
     tasksList[id] = task;
 
+    printTasks(tasksList);
+}
+
+function removeTask(id){
+    tasksList.splice(id, 1);
     printTasks(tasksList);
 }
 
@@ -123,15 +135,12 @@ $(document).ready(function () {
         let id = $(this).parent().parent().attr('id');
 
         CTM.deleteTask(token, tasksList[id]['Id'], function (success) {
-            alert("Хоп Хэй");
+            if(success == ""){
+                removeTask(id);
+            }
         }, function (fail) {
             alert(fail);
         });
-
-        CTM.getAllTasks(token, handleTasks,
-            function (fail) {
-                alert(fail);
-            });
     });
 
     //Make complete
@@ -189,17 +198,13 @@ $(document).ready(function () {
     $('#button_remove_all').click(function (e) {
         e.preventDefault();
         CTM.deleteCompletedTasks(token, function (success) {
+
             alert("Вы удалили все выполненные задания");
         }, function (fail) {
             alert(fail);
         });
 
-        CTM.getAllTasks(token, handleTasks,
-            function (fail) {
-                alert(fail);
-            });
     });
-
 
     $('#button_refresh').click(function (e) {
         e.preventDefault();
