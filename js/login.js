@@ -23,20 +23,24 @@ if (user || password){
         $('#submitLogin').click(function (e) {
             e.preventDefault();
             let email = $('#emailLogin').val();
-            let password = $('#passwordLogin').val();
-            let loginInfo = CTM.login(email, password, function (success) {
-                console.log(success);
+            let password = $('#passwordLogin').val();			
+			let loginInfo = CTM.login(email, password, function (success) {
+				console.log(success);
                 sessionStorage.setItem(tokenKey, success["access_token"]);
                 console.log(success["access_token"]);
-				//Здесь проверка на ответ сервера чтобы заблочить кнопку входа
-				//здесь выводить ошибки - bad request не верный логин пароль
-				//500
-                setCookie("username", $('#emailLogin').val());
-                setCookie("password", $('#passwordLogin').val());
+
+				let ch = $("#checkboxMe").attr("checked");
+				if($("#checkboxMe").prop("checked")){
+                setCookie("username", $('#emailLogin').val(), 7);
+                setCookie("password", $('#passwordLogin').val(),7);
+				}
                 document.location.href = 'popup.html';
-            },function (fail) {
-                alert(fail);
-            });
+				},function (fail) {
+					alert(fail);
+			});
+					//}
+				//}
+           
             // document.location.href = 'popup.html';
         });
     })

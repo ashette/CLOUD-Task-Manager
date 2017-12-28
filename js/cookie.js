@@ -1,5 +1,8 @@
-function setCookie (name, value) {
-      document.cookie = name + "=" + escape(value);
+function setCookie (name, value, exday) {
+ var d = new Date();
+ d.setTime(d.getTime() + (exday*24*60*60*1000));
+ var expires = "expires="+ d.toUTCString(); 
+ document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 function getCookie(name) {
 	var cookie = " " + document.cookie;
@@ -21,5 +24,5 @@ function getCookie(name) {
 	return(setStr);
 }
 function deleteCookie (name) {
-    document.cookie = name + "=" + "";
+    document.cookie = name + "=" + "" + "" ;
 }

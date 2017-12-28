@@ -42,6 +42,18 @@ var CTMComponent = function () {
             type: 'POST',
             url: domainName + '/Token',
             data: loginData,
+			statusCode: {
+				400: function() {
+					alert("Неправильно введен логин/пароль");
+					$('#emailLogin').val('');
+					$('#passwordLogin').val('');
+					return;
+				},
+				500: function() {
+					alert("Внутренняя ошибка сервера, повторите запрос позднее");
+					return;
+				}
+			},
             success: function (data) {
                 handleSuccess(data);
             },
