@@ -28,6 +28,9 @@ if (user || password){
                 console.log(success);
                 sessionStorage.setItem(tokenKey, success["access_token"]);
                 console.log(success["access_token"]);
+				//Здесь проверка на ответ сервера чтобы заблочить кнопку входа
+				//здесь выводить ошибки - bad request не верный логин пароль
+				//500
                 setCookie("username", $('#emailLogin').val());
                 setCookie("password", $('#passwordLogin').val());
                 document.location.href = 'popup.html';
