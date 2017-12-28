@@ -32,7 +32,7 @@ function createNotCompleteTaskHtml(index, task){
 };
 
 function printTasks(tasksList) {
-    if (tasksList.length > 0) {
+    if (tasksList.length > 0 || tasksList.length == 0) {
         $('#task_list').empty();
     }
     else {
@@ -53,11 +53,9 @@ function printTasks(tasksList) {
 
     $('.vertScroll').css("overflow-y", "");
     if($('#task_list').height() < $('.vertScroll').height()){
-        console.log("overflow-y none");
         $('.vertScroll').css("overflow-y", "none");
     }
     else{
-        console.log("overflow-y scroll");
         $('.vertScroll').css("overflow-y", "scroll");
     }
 }
@@ -136,8 +134,10 @@ $(document).ready(function () {
 
         CTM.deleteTask(token, tasksList[id]['Id'], function (success) {
             if(success == ""){
+                console.log(id);
                 removeTask(id);
             }
+            console.log(success);
         }, function (fail) {
             alert(fail);
         });
@@ -198,8 +198,10 @@ $(document).ready(function () {
     $('#button_remove_all').click(function (e) {
         e.preventDefault();
         CTM.deleteCompletedTasks(token, function (success) {
-
-            alert("Вы удалили все выполненные задания");
+            CTM.getAllTasks(token, handleTasks,
+                function (fail) {
+                    alert(fail);
+                });
         }, function (fail) {
             alert(fail);
         });

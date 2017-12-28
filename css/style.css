@@ -121,11 +121,12 @@ h6 {
 
 li {
     display: block;
+    vertical-align: bottom;
 }
 
 li:hover {
     background-color: #EEEEEE;
-
+    vertical-align: bottom;
 }
 
 li:hover #done {
@@ -135,7 +136,7 @@ li:hover #done {
     border: none;
     background-color: transparent;
     cursor: pointer;
-
+    vertical-align: bottom;
     margin-left: 80px;
     outline: none;
     display: inline-block;
@@ -151,6 +152,7 @@ li:hover #edit_this {
     margin-left: 5px;
     outline: none;
     display: inline-block;
+    vertical-align: bottom;
 }
 
 li:hover #remove_this {
@@ -163,6 +165,8 @@ li:hover #remove_this {
     margin-left: 5px;
     outline: none;
     display: inline-block;
+    vertical-align: bottom;
+
 }
 
 #done, #edit_this, #remove_this {
