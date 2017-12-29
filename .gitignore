@@ -25,6 +25,17 @@ _UpgradeReport_Files/
 bin/
 obj/
 TestResults/
+PublishProfiles/
+###############
+#Server config#
+###############
+Web.config
+Web.*.config
+###############
+#   Database  #
+###############
+*.mdf
+*.ldf
 ###################
 # Web publish log #
 ###################
