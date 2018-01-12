@@ -1,7 +1,7 @@
 var CTMComponent = function () {
     let domainName = 'http://lab.group.1.b2bfamily.com';
 
-    this.register = function (email, password, confirmpassword, handleSuccess, handleFail) {
+    this.register = function (email, password, confirmpassword, statusCodeResponses, handleSuccess, handleFail) {
         let data = {
             Email: email,
             Password: password,
@@ -13,12 +13,9 @@ var CTMComponent = function () {
             url: domainName + '/api/Account/Register',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data),
-            success: function (data) {
-                handleSuccess('Регистрация пройдена');
-            },
-            fail: function (data) {
-                handleFail('В процесе регистрации возникла ошибка');
-            }
+            statusCode: statusCodeResponses,
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 
@@ -31,7 +28,7 @@ var CTMComponent = function () {
      .issued: "Sat, 07 Mar 2015 21:42:16 GMT",
      .expires: "Sat, 21 Mar 2015 21:42:16 GMT"
      */
-    this.login = function (login, password, handleSuccess, handleFail) {
+    this.login = function (login, password, statusCodeResponses, handleSuccess, handleFail) {
         let loginData = {
             grant_type: 'password',
             username: login,
@@ -42,24 +39,9 @@ var CTMComponent = function () {
             type: 'POST',
             url: domainName + '/Token',
             data: loginData,
-			statusCode: {
-				400: function() {
-					alert("Неправильно введен логин/пароль");
-					$('#emailLogin').val('');
-					$('#passwordLogin').val('');
-					return;
-				},
-				500: function() {
-					alert("Внутренняя ошибка сервера, повторите запрос позднее");
-					return;
-				}
-			},
-            success: function (data) {
-                handleSuccess(data);
-            },
-            fail: function (data) {
-                handleFail('При логине возникла ошибка');
-            }
+            statusCode: statusCodeResponses,
+            success: handleSuccess,
+            fail: handleFail
         });
     };
 
@@ -92,12 +74,12 @@ var CTMComponent = function () {
             fail: handleFail
         });
     };
-	
-	this.deleteCompletedTasks = function (token, handleSuccess, handleFail) {
-		
-		$.ajax({
+
+    this.deleteCompletedTasks = function (token, handleSuccess, handleFail) {
+
+        $.ajax({
             type: 'GET',
-            url: domainName + '/api/Task/DeleteCompletedTasks',	
+            url: domainName + '/api/Task/DeleteCompletedTasks',
             beforeSend: function (xhr) {
                 xhr.setRequestHeader("Authorization", "Bearer " + token);
             },
@@ -105,9 +87,9 @@ var CTMComponent = function () {
             fail: handleFail
         });
     };
-	
 
-	this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
+
+    this.completeTask = function (token, id, complete, handleSuccess, handleFail) {
         let datatask = {
             Id: id,
             Complete: complete,

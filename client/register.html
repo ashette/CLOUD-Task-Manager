@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>CTM_LOGIN</title>
-        <link rel="stylesheet" href="css/style_register.css" media="screen" type="text/css" />
-        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="js/CTMComponent.js"></script>
-        <script type="text/javascript" src="js/register.js"></script>
-    </head>
-    <body>
-        <div id="header">
-            <div id="logo">
-                <img src = "logo.png" alt="">
-                <h2>CLOUD Task Manager</h2>                
-            </div>
-        </div>
-        <div id="login">
-            <form>
-                <fieldset class="clearfix">
-                    <!--<p><input type="text" placeholder="Логин" onBlur="if (this.value == '')-->
-                                <!--this.value = 'Логин'" onFocus="if (this.value == 'Логин')-->
-                                            <!--this.value = ''" required></p> -->
-                    <p><input type="email" id="emailRegister" placeholder="Электронный адрес" ></p>
-                    <p><input type="password" id="passwordRegister" placeholder="Пароль" ></p>
-                    <p><input type="password" id="confirmPassRegister" placeholder="Повторите пароль" ></p>
+<head>
+    <meta charset="UTF-8">
+    <title>CTM_LOGIN</title>
+    <link rel="stylesheet" href="css/style_register.css" media="screen" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/CTMComponent.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+</head>
+<body>
+<div id="header">
+    <div id="logo">
+        <img src="logo.png" alt="">
+        <h2>CLOUD Task Manager</h2>
+    </div>
+</div>
 
-                    <p><input type="submit" id="submitRegister"  value="Зарегестрироваться"></p>
-                </fieldset>
-            </form>
-            <p>Уже зарегестрированы? &nbsp;&nbsp;<a href="login.html">Войти</a></p>
-        </div>
-    </body>
+<div id="error_block" class="error_block">
+    <div class="error_msg">
+        Неверный адрес электронной почты или пароль.
+    </div>
+</div>
+
+<div id="login">
+
+
+    <form>
+        <fieldset class="clearfix">
+            <p><input type="email" id="emailRegister" placeholder="Электронный адрес"></p>
+            <p><input type="password" id="passwordRegister" placeholder="Пароль"></p>
+            <p><input type="password" id="confirmPassRegister" placeholder="Повторите пароль"></p>
+
+            <p><input type="submit" id="submitRegister" value="Зарегестрироваться"></p>
+        </fieldset>
+    </form>
+    <p>Уже зарегестрированы? &nbsp;&nbsp;<a href="login.html">Войти</a></p>
+</div>
+</body>
 </html>

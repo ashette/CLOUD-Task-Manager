@@ -130,4 +130,41 @@ a{
     color: #fff;
 }
 
+.error_block {
+    margin-bottom: 1em;
+    display:none;
+}
+.error_msg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #dd4b39;
+    padding: .25em 0;
 
+    width: 350px;
+    margin: auto;
+}
+
+.error_msg img {
+    margin-right: .5em;
+}
+
+.cmp_warning_circle {
+    background: url(https://d3ptyyxy2at9ui.cloudfront.net/94aa315….png) 0 0 no-repeat;
+    background-position: 0 -65px;
+    width: 16px;
+    height: 16px;
+}
+.cmp_warning_circle {
+    background: url(https://d3ptyyxy2at9ui.cloudfront.net/94aa315….png) 0 0 no-repeat;
+    background-position: 0 -65px;
+    width: 16px;
+    height: 16px;
+}
+
+img {
+    border: 0;
+}

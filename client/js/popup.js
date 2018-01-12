@@ -4,7 +4,7 @@ var tasksList = [];
 var flag = false;
 var taskListId = -1;
 
-function createCompleteTaskHtml(index, task){
+function createCompleteTaskHtml(index, task) {
     let str = '<li id=\"' + index + '\">' +
         '<div class="inner">' +
         '<div class = "task_this"><h6 class="complete_task">' + task + '</h6></div> ' +
@@ -18,7 +18,7 @@ function createCompleteTaskHtml(index, task){
 };
 
 
-function createNotCompleteTaskHtml(index, task){
+function createNotCompleteTaskHtml(index, task) {
     let str = '<li id=\"' + index + '\">' +
         '<div class="inner">' +
         '<div class = "task_this"><h6 class="not_complete_task">' + task + '</h6></div> ' +
@@ -52,10 +52,10 @@ function printTasks(tasksList) {
     $('#task_list').append(taskLine);
 
     $('.vertScroll').css("overflow-y", "");
-    if($('#task_list').height() < $('.vertScroll').height()){
+    if ($('#task_list').height() < $('.vertScroll').height()) {
         $('.vertScroll').css("overflow-y", "none");
     }
-    else{
+    else {
         $('.vertScroll').css("overflow-y", "scroll");
     }
 }
@@ -80,7 +80,7 @@ function getEditTask(id, task) {
     printTasks(tasksList);
 }
 
-function removeTask(id){
+function removeTask(id) {
     tasksList.splice(id, 1);
     printTasks(tasksList);
 }
@@ -133,7 +133,7 @@ $(document).ready(function () {
         let id = $(this).parent().parent().attr('id');
 
         CTM.deleteTask(token, tasksList[id]['Id'], function (success) {
-            if(success == ""){
+            if (success == "") {
                 console.log(id);
                 removeTask(id);
             }
@@ -155,29 +155,29 @@ $(document).ready(function () {
         });
     });
 
-	$('#task').click(function (e) {
-		e.preventDefault();
-		let button = document.getElementById("add_task");
-		button.disabled = false;
-	});
-	
+    $('#task').click(function (e) {
+        e.preventDefault();
+        let button = document.getElementById("add_task");
+        button.disabled = false;
+    });
+
     // Add task
     $('#add_task').click(function (e) {
         e.preventDefault();
-		let text = $('#task').val();
-		let button = document.getElementById("add_task");
-		if (text != "") {
-			button.disabled = false;
-		} else {
-			button.disabled = true;
-			return;
-		}
-        
+        let text = $('#task').val();
+        let button = document.getElementById("add_task");
+        if (text != "") {
+            button.disabled = false;
+        } else {
+            button.disabled = true;
+            return;
+        }
+
         let complete = 0;
         if (!flag) {
             CTM.addTask(token, complete, text, function (success) {
-				getAddTask(success);
-				document.getElementById("task").value = "";
+                getAddTask(success);
+                document.getElementById("task").value = "";
             }, function (fail) {
                 alert(fail);
             });
@@ -186,7 +186,7 @@ $(document).ready(function () {
                 getEditTask(taskListId, success);
                 flag = false;
                 taskListId = -1;
-				document.getElementById("task").value = "";
+                document.getElementById("task").value = "";
             }, function (fail) {
                 alert(fail);
             });

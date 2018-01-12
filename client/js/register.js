@@ -1,21 +1,28 @@
-
-
-
 $(document).ready(function () {
     $('#submitRegister').click(function (e) {
         e.preventDefault();
         let email = $('#emailRegister').val();
         let password = $('#passwordRegister').val();
         let confirmPassword = $('#confirmPassRegister').val();
-		CTM.register(email, password, confirmPassword, function (success) {
-            alert(success);
-			console.log(success);
-			//document.location.href = 'login.html';
+        CTM.register(email, password, confirmPassword, {
+            400: function () {
+                showError("Неправильно введены данные");
+                return;
+            },
+            500: function () {
+                showError("Внутренняя ошибка сервера, повторите запрос позднее");
+                return;
+            }
+        }, function (success) {
+            alert('Регистрация пройдена');
         }, function (fail) {
-            alert(fail);
-			console.log(fail);
+            showError('В процесе регистрации возникла ошибка');
         });
-        // document.location.href = 'login.html';
     });
 })
 
+
+function showError(textError) {
+    $('#error_block').css("display", "block");
+    $('.error_msg').val(textError);
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CTM_LOGIN</title>
-    <link rel="stylesheet" href="css/style_login.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="css/style_login.css" media="screen" type="text/css"/>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/CTMComponent.js"></script>
     <script type="text/javascript" src="js/cookie.js"></script>
@@ -13,21 +13,34 @@
 <body>
 <div id="header">
     <div id="logo">
-        <img src = "logo.png" alt="">
+        <img src="logo.png" alt="">
         <h2>CLOUD Task Manager</h2>
     </div>
 </div>
+
+<div id="error_block" class="error_block">
+    <div class="error_msg">
+        Неверный адрес электронной почты или пароль.
+    </div>
+</div>
+
+
 <div id="login">
+
     <form>
         <fieldset class="clearfix">
-            <p><span class="fontawesome-user"></span><input type="text" name="emailLogin" id="emailLogin" placeholder="Логин" ></p>
-            <p><span class="fontawesome-lock"></span><input type="password" name="passwordLogin" id="passwordLogin" placeholder="Пароль"></p>
+            <p><span class="fontawesome-user"></span><input type="text" name="emailLogin" id="emailLogin"
+                                                            placeholder="Логин"></p>
+            <p><span class="fontawesome-lock"></span><input type="password" name="passwordLogin" id="passwordLogin"
+                                                            placeholder="Пароль"></p>
             <p><input type="submit" id="submitLogin" value="ВОЙТИ"></p>
         </fieldset>
     </form>
-	<p><input type="checkbox" id = "checkboxMe"> Запомнить меня?</p>
+    <p><input type="checkbox" id="checkboxMe"> Запомнить меня?</p>
     <p>Нет аккаунта? &nbsp;&nbsp;<a href="register.html">Регистрация</a></p>
 </div>
+
+
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/CTMComponent.js"></script>
 </body>
