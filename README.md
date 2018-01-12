@@ -148,9 +148,9 @@ CTM.logOut(token, handleSuccess, handleFail)
 ```
 
 Более подробное описание данных возвращаемых сервером описано 
-в классе работы с [задачами](https://github.com/ashette/CLOUD-Task-Manager/blob/dev/server/Controllers/TaskController.cs)
+в классе работы с [задачами](https://github.com/ashette/CLOUD-Task-Manager/blob/dev/src/server/Controllers/TaskController.cs)
 ## Установка
-1. Скачайте архив из [репозитория](https://github.com/ashette/CLOUD-Task-Manager)
+1. Скачайте архив из [репозитория](https://github.com/ashette/CLOUD-Task-Manager/dist/client.crx)
 2. Разархивируйте файл с приложением
 2. Откройте браузер Google Chrome
 3. Откройте настройку "Управление расширениями"
