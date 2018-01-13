@@ -6,7 +6,7 @@ $(document).ready(function () {
         let confirmPassword = $('#confirmPassRegister').val();
         CTM.register(email, password, confirmPassword, {
             400: function () {
-                showError("Неправильно введены данные");
+                showError("Неправильно введены данные. Пароль не может содержать меньше 6 символов и состоять только из чисел");
                 return;
             },
             500: function () {
@@ -23,6 +23,6 @@ $(document).ready(function () {
 
 
 function showError(textError) {
-    $('#error_block').css("display", "block");
-    $('.error_msg').val(textError);
+    $('#error_block').css("display", "inline-block");
+    $('#error_msg_text').text(textError);
 }

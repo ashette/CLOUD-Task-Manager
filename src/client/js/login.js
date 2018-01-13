@@ -51,6 +51,6 @@ else {
 }
 
 function showError(textError) {
-    $('#error_block').css("display", "block");
-    $('.error_msg').val(textError);
+    $('#error_block').css("display", "inline-block");
+    $('#error_msg_text').text(textError);
 }

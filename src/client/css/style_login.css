@@ -133,18 +133,19 @@ a{
 .error_block {
     margin-bottom: 1em;
     display:none;
+    width: 100%;
 }
 .error_msg {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    display: inline-block;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
     color: #dd4b39;
     padding: .25em 0;
-
-    width: 350px;
+    text-align: center;
+    width: 100%;
     margin: auto;
 }
 
