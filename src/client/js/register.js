@@ -1,6 +1,8 @@
+var tokenKey = "tokenInfo";
 $(document).ready(function () {
     $('#submitRegister').click(function (e) {
         e.preventDefault();
+        $('.progresbar_bg').css("display", "block");
         let email = $('#emailRegister').val();
         let password = $('#passwordRegister').val();
         let confirmPassword = $('#confirmPassRegister').val();
@@ -14,7 +16,16 @@ $(document).ready(function () {
                 return;
             }
         }, function (success) {
+            $('.progresbar_bg').css("display", "none");
             alert('Регистрация пройдена');
+
+            CTM.login(email, password,{}, function (success) {
+                sessionStorage.setItem(tokenKey, success["access_token"]);
+                document.location.href = 'popup.html';
+            }, function (fail) {
+                showError(fail);
+            });
+
         }, function (fail) {
             showError('В процесе регистрации возникла ошибка');
         });
@@ -23,6 +34,7 @@ $(document).ready(function () {
 
 
 function showError(textError) {
+    $('.progresbar_bg').css("display", "none");
     $('#error_block').css("display", "inline-block");
     $('#error_msg_text').text(textError);
 }

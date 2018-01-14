@@ -2,23 +2,25 @@ var tokenKey = "tokenInfo";
 var user = getCookie("username");
 var password = getCookie("password");
 if (user || password) {
+
+    $('.progresbar_bg').css("display", "block");
+
     let email = getCookie("username");
     let password = getCookie("password");
-    let loginInfo = CTM.login(email, password, function (success) {
-        console.log(success);
+
+    CTM.login(email, password,{}, function (success) {
         sessionStorage.setItem(tokenKey, success["access_token"]);
-        console.log(success["access_token"]);
         document.location.href = 'popup.html';
     }, function (fail) {
-        alert(fail);
+        showError(fail);
     });
-
 }
 else {
     $(document).ready(function () {
 
         $('#submitLogin').click(function (e) {
             e.preventDefault();
+            $('.progresbar_bg').css("display", "block");
             let email = $('#emailLogin').val();
             let password = $('#passwordLogin').val();
             CTM.login(email, password,
@@ -51,6 +53,7 @@ else {
 }
 
 function showError(textError) {
+    $('.progresbar_bg').css("display", "none");
     $('#error_block').css("display", "inline-block");
     $('#error_msg_text').text(textError);
 }
