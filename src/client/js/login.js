@@ -8,7 +8,7 @@ if (user || password) {
     let email = getCookie("username");
     let password = getCookie("password");
 
-    CTM.login(email, password,{}, function (success) {
+    CTM.login(email, password, {}, function (success) {
         sessionStorage.setItem(tokenKey, success["access_token"]);
         document.location.href = 'popup.html';
     }, function (fail) {
@@ -25,14 +25,14 @@ else {
             let password = $('#passwordLogin').val();
             CTM.login(email, password,
                 {
-                    400: function () {
-                        showError("Неправильно введен логин/пароль");
+                    400: function (err) {
+                        showError(extractError(err));
                         $('#emailLogin').val('');
                         $('#passwordLogin').val('');
                         return;
                     },
                     500: function () {
-                        showError("Внутренняя ошибка сервера, повторите запрос позднее");
+                        showError("Internal server error");
                         return;
                     }
                 },
@@ -46,10 +46,21 @@ else {
                     }
                     document.location.href = 'popup.html';
                 }, function (fail) {
-                    showError('При авторизации возникла ошибка');
+                    showError("An error occurred during the authorization process");
                 });
         });
     })
+}
+
+function extractError(error) {
+    try {
+        if (error.responseJSON.error_description) {
+            return error.responseJSON.error_description;
+        }
+    }
+    catch (e){
+
+    }
 }
 
 function showError(textError) {

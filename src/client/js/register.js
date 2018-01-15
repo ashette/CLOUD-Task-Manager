@@ -13,7 +13,7 @@ $(document).ready(function () {
                 return;
             },
             500: function () {
-                showError("Внутренняя ошибка сервера, повторите запрос позднее");
+                showError("Internal server error");
                 return;
             }
         }, function (success) {
@@ -29,19 +29,47 @@ $(document).ready(function () {
             });
 
         }, function (fail) {
-            showError('В процесе регистрации возникла ошибка');
+            showError("An error occurred during the registration process");
         });
     });
 })
 
 function extractError(error) {
-    if(error.responseJSON.ModelState[""]["0"]){
-        return error.responseJSON.ModelState[""]["0"];
+    try {
+        if (error.responseJSON.ModelState[""]["1"]) {
+            return error.responseJSON.ModelState[""]["1"];
+        }
+    }
+    catch (e){
+
     }
 
-    if(error.responseJSON.ModelState["model.Password"]["0"]){
-        return error.responseJSON.ModelState["model.Password"]["0"];
+    try {
+        if (error.responseJSON.ModelState[""]["0"]) {
+            return error.responseJSON.ModelState[""]["0"];
+        }
     }
+    catch (e){
+
+    }
+
+    try {
+        if (error.responseJSON.ModelState["model.Password"]["0"]) {
+            return error.responseJSON.ModelState["model.Password"]["0"];
+        }
+    }
+    catch (e){
+
+    }
+    try {
+        if (error.responseJSON.ModelState["model.ConfirmPassword"]["0"]) {
+            return error.responseJSON.ModelState["model.ConfirmPassword"]["0"];
+        }
+    }
+    catch (e){
+
+    }
+
 }
 
 function showError(textError) {
