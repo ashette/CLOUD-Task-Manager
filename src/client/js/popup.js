@@ -166,11 +166,10 @@ $(document).ready(function () {
         e.preventDefault();
         this.disabled = true;
         let text = $('#task').val();
-        let button = document.getElementById("add_task");
         if (text != "") {
-            button.disabled = false;
+            this.disabled = false;
         } else {
-            button.disabled = true;
+            this.disabled = true;
             return;
         }
 
@@ -195,7 +194,6 @@ $(document).ready(function () {
                 alert(fail);
             });
         }
-
     });
 
 

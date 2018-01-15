@@ -8,7 +8,12 @@ if (user || password) {
     let email = getCookie("username");
     let password = getCookie("password");
 
-    CTM.login(email, password, {}, function (success) {
+    CTM.login(email, password, {
+        500: function () {
+            showError("Internal server error");
+            return;
+        }
+    }, function (success) {
         sessionStorage.setItem(tokenKey, success["access_token"]);
         document.location.href = 'popup.html';
     }, function (fail) {
