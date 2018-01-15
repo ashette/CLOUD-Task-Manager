@@ -1,4 +1,5 @@
 var tokenKey = "tokenInfo";
+var eer;
 $(document).ready(function () {
     $('#submitRegister').click(function (e) {
         e.preventDefault();
@@ -7,8 +8,8 @@ $(document).ready(function () {
         let password = $('#passwordRegister').val();
         let confirmPassword = $('#confirmPassRegister').val();
         CTM.register(email, password, confirmPassword, {
-            400: function () {
-                showError("Неправильно введены данные. Пароль не может содержать меньше 6 символов и состоять только из чисел");
+            400: function (err) {
+                showError(extractError(err));
                 return;
             },
             500: function () {
@@ -16,6 +17,7 @@ $(document).ready(function () {
                 return;
             }
         }, function (success) {
+
             $('.progresbar_bg').css("display", "none");
             alert('Регистрация пройдена');
 
@@ -32,6 +34,15 @@ $(document).ready(function () {
     });
 })
 
+function extractError(error) {
+    if(error.responseJSON.ModelState[""]["0"]){
+        return error.responseJSON.ModelState[""]["0"];
+    }
+
+    if(error.responseJSON.ModelState["model.Password"]["0"]){
+        return error.responseJSON.ModelState["model.Password"]["0"];
+    }
+}
 
 function showError(textError) {
     $('.progresbar_bg').css("display", "none");

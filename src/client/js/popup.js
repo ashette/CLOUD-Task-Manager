@@ -164,6 +164,7 @@ $(document).ready(function () {
     // Add task
     $('#add_task').click(function (e) {
         e.preventDefault();
+        this.disabled = true;
         let text = $('#task').val();
         let button = document.getElementById("add_task");
         if (text != "") {
@@ -174,10 +175,12 @@ $(document).ready(function () {
         }
 
         let complete = 0;
+
         if (!flag) {
             CTM.addTask(token, complete, text, function (success) {
                 getAddTask(success);
                 document.getElementById("task").value = "";
+                button.disabled = false;
             }, function (fail) {
                 alert(fail);
             });
@@ -187,6 +190,7 @@ $(document).ready(function () {
                 flag = false;
                 taskListId = -1;
                 document.getElementById("task").value = "";
+                button.disabled = false;
             }, function (fail) {
                 alert(fail);
             });
