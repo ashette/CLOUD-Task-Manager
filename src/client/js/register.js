@@ -21,7 +21,13 @@ $(document).ready(function () {
             $('.progresbar_bg').css("display", "none");
             alert('Регистрация пройдена');
 
-            CTM.login(email, password,{}, function (success) {
+            CTM.login(email, password, {
+
+                500: function () {
+                    showError("Internal server error");
+                    return;
+                }
+            }, function (success) {
                 sessionStorage.setItem(tokenKey, success["access_token"]);
                 document.location.href = 'popup.html';
             }, function (fail) {
@@ -40,7 +46,7 @@ function extractError(error) {
             return error.responseJSON.ModelState[""]["1"];
         }
     }
-    catch (e){
+    catch (e) {
 
     }
 
@@ -49,7 +55,7 @@ function extractError(error) {
             return error.responseJSON.ModelState[""]["0"];
         }
     }
-    catch (e){
+    catch (e) {
 
     }
 
@@ -58,7 +64,7 @@ function extractError(error) {
             return error.responseJSON.ModelState["model.Password"]["0"];
         }
     }
-    catch (e){
+    catch (e) {
 
     }
     try {
@@ -66,7 +72,7 @@ function extractError(error) {
             return error.responseJSON.ModelState["model.ConfirmPassword"]["0"];
         }
     }
-    catch (e){
+    catch (e) {
 
     }
 
